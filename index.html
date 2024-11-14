@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Interaktif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background-color: #f7f7f7;
+        }
+
+        .message-box {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        h2 {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="greetingMessage">Hello, Gagah!</h2>
+
+    <!-- Pesan akan ditampilkan di sini -->
+    <div id="messageBox" class="message-box"></div>
+
+    <script>
+        let currentStep = 0;
+        let messages = [
+            "Hello, Gagah!",  // Pesan pertama
+            "Nisa harap gagah baik-baik aja di sana!",
+            "Nisa mau minta maaf karena udah bikin gagah bete kemarin, maafin Nisa yaa!",
+            "Semoga semua urusan gagah cepat selesai yaa!",
+            "Nisa doain gagah selalu baik-baik aja!",
+            "Jangan lupa senyum, sabar, okeeeyyy!",
+            "Senyum duluuuuu 🤗",
+            "I miss you a lot 🤗"
+        ];
+
+        // Menambahkan event listener untuk mendeteksi klik di layar
+        document.body.addEventListener("click", showNextMessage);
+
+        // Fungsi untuk menampilkan pesan bertahap
+        function showNextMessage() {
+            // Menghilangkan pesan awal (Hello, Gagah) setelah klik pertama
+            if (currentStep === 0) {
+                document.getElementById("greetingMessage").style.display = "none";
+            }
+
+            if (currentStep < messages.length) {
+                let messageBox = document.getElementById("messageBox");
+                messageBox.style.display = "block";  // Menampilkan kotak pesan
+                messageBox.textContent = messages[currentStep];  // Menampilkan pesan
+                currentStep++;
+            }
+        }
+    </script>
+
+</body>
+</html>
